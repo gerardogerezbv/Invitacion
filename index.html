@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Invitación de Boda</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1 id="coupleNames">Noe & Gera</h1>
+
+    <p class="date">19 de Septiembre 2026</p>
+
+    <p class="quote">
+      “El amor no se busca, se construye.”
+    </p>
+
+    <a href="#countdown" class="btn">Ver invitación</a>
+  </div>
+</header>
+
+<!-- ================= COUNTDOWN ================= -->
+<section class="section reveal" id="countdown">
+  <h2>Faltan</h2>
+
+  <div class="grid-countdown">
+    <div class="card">
+      <span id="days">00</span>
+      <p>Días</p>
+    </div>
+
+    <div class="card">
+      <span id="hours">00</span>
+      <p>Horas</p>
+    </div>
+
+    <div class="card">
+      <span id="minutes">00</span>
+      <p>Minutos</p>
+    </div>
+
+    <div class="card">
+      <span id="seconds">00</span>
+      <p>Segundos</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HISTORIA ================= -->
+<section class="section reveal">
+  <h2>Nuestra Historia</h2>
+
+  <p class="text-center">
+    Cada historia de amor tiene un comienzo único...
+  </p>
+
+  <div class="timeline">
+    <div class="timeline-item">Nos conocimos</div>
+    <div class="timeline-item">Primer viaje</div>
+    <div class="timeline-item">Compromiso</div>
+    <div class="timeline-item">Boda</div>
+  </div>
+</section>
+
+<!-- ================= CEREMONIA ================= -->
+<section class="section reveal">
+  <h2>Ceremonia</h2>
+
+  <div class="card">
+    <h3 id="churchName">Iglesia</h3>
+    <p id="churchAddress">Dirección</p>
+
+    <iframe id="churchMap"></iframe>
+
+    <a id="churchBtn" class="btn" target="_blank">Cómo llegar</a>
+  </div>
+</section>
+
+<!-- ================= RECEPCIÓN ================= -->
+<section class="section reveal">
+  <h2>Recepción</h2>
+
+  <div class="card">
+    <h3 id="hallName">Salón</h3>
+    <p id="hallAddress">Dirección</p>
+
+    <iframe id="hallMap"></iframe>
+
+    <a id="hallBtn" class="btn" target="_blank">Cómo llegar</a>
+  </div>
+</section>
+
+<!-- ================= CRONOGRAMA ================= -->
+<section class="section reveal">
+  <h2>Cronograma</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">Recepción</div>
+    <div class="timeline-item">Ceremonia</div>
+    <div class="timeline-item">Brindis</div>
+    <div class="timeline-item">Cena</div>
+    <div class="timeline-item">Fiesta</div>
+  </div>
+</section>
+
+<!-- ================= GALERÍA ================= -->
+<section class="section reveal">
+  <h2>Galería</h2>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<!-- ================= MUSICA ================= -->
+<section class="section reveal">
+  <h2>Música</h2>
+
+  <iframe id="spotifyFrame" class="spotify"></iframe>
+</section>
+
+<!-- ================= RSVP ================= -->
+<section class="section reveal">
+  <h2>Confirmar asistencia</h2>
+
+  <form class="form">
+    <input type="text" placeholder="Nombre completo" />
+    <input type="number" placeholder="Cantidad de invitados" />
+
+    <select>
+      <option>Sí asistiré</option>
+      <option>No asistiré</option>
+    </select>
+
+    <textarea placeholder="Mensaje"></textarea>
+
+    <button type="button" class="btn">Enviar</button>
+  </form>
+</section>
+
+<!-- ================= REGALOS ================= -->
+<section class="section reveal">
+  <h2>Regalos</h2>
+
+  <div class="card text-center">
+    <p id="aliasText">ALIAS.BANCO.EJEMPLO</p>
+    <button id="copyAlias" class="btn">Copiar alias</button>
+  </div>
+</section>
+
+<!-- ================= FINAL ================= -->
+<section class="section reveal final">
+  <h2>Gracias</h2>
+  <p>Te esperamos en nuestro gran día.</p>
+
+  <img src="images/final.jpg" class="final-img" alt="novios"/>
+</section>
+
+<!-- ================= LIGHTBOX ================= -->
+<div id="lightbox">
+  <img id="lightboxImg" />
+</div>
+
+<!-- BOTONES -->
+<a id="whatsappBtn" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<button id="topBtn">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>

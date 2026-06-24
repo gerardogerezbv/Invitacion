@@ -1,0 +1,101 @@
+Actúa como un desarrollador web senior especializado en sitios de bodas elegantes y responsive.
+1
+Crea una invitación web de boda moderna, elegante y responsive utilizando HTML, CSS y JavaScript puro (sin frameworks).
+El proyecto debe estar listo para publicarse en GitHub Pages, Netlify o Vercel.
+
+Debe incluir:
+
+Diseño romántico con paleta pastel (rosa, azul, blanco y tonos suaves).
+Estructura Mobile First y totalmente responsive.
+Animaciones suaves al hacer scroll (fade in / reveal).
+Hero con foto principal de los novios, nombres, fecha y frase romántica.
+Cuenta regresiva dinámica hasta la fecha del evento.
+Sección “Nuestra Historia” con timeline.
+Sección de ceremonia con Google Maps embebido.
+Sección de recepción con Google Maps embebido.
+Cronograma del evento en formato timeline.
+Galería de fotos dinámica con lightbox.
+Playlist embebida de Spotify.
+Formulario RSVP preparado para integración con Google Forms.
+Sección de regalos con alias bancario y botón de copiar.
+Botón flotante de WhatsApp.
+Botón de volver arriba.
+
+Requisitos técnicos:
+
+Código limpio y separado en 3 archivos: index.html, style.css, script.js.
+JavaScript sin frameworks.
+Evitar errores si faltan elementos en el DOM.
+Configuración centralizada en un objeto CONFIG en JS.
+Carga optimizada y sin bloqueos.
+
+Estilo visual:
+
+Elegante, minimalista, romántico.
+Tipografía serif para títulos y sans-serif para textos.
+Sombras suaves y bordes redondeados.
+Animaciones sutiles y naturales.
+
+Debe comportarse como una landing page de invitación premium de nivel profesional.
+
+2
+🚀 2. SIGUIENTE NIVEL (IDEAS PARA EVOLUCIÓN)
+
+Ahora que tienes base estable, puedes subirlo a nivel:
+
+💎 NIVEL 1 — EXPERIENCIA CINEMÁTICA
+✨ Entrada animada (Hero intro)
+Fade in del nombre de los novios
+aparición por capas (nombre → fecha → botón)
+efecto “reveal suave”
+🎵 NIVEL 2 — MÚSICA DE FONDO
+
+Opciones:
+
+Opción A (simple)
+botón “▶ Activar música”
+autoplay con control manual
+Opción B (premium)
+música suave tipo piano / instrumental
+fade in al entrar al sitio
+mute/unmute flotante
+🌸 NIVEL 3 — EFECTOS ROMÁNTICOS
+partículas flotantes (corazones o pétalos)
+movimiento lento tipo “floating”
+overlay suave dinámico
+🌀 NIVEL 4 — SCROLL PREMIUM (tipo Apple)
+smooth scroll real (inercia)
+transiciones entre secciones más fluidas
+efecto “parallax ligero” en hero
+💌 NIVEL 5 — RSVP REAL
+conexión a Google Sheets
+o Formspree
+o Google Forms embebido limpio
+confirmación visual (toast “Gracias por confirmar”)
+💎 NIVEL 6 — PRODUCTO VENDIBLE
+
+Aquí ya lo conviertes en:
+
+plantilla vendible (Gumroad / Etsy / etc.)
+personalización por CONFIG
+demo multiple bodas
+sistema multi-template
+🚀 RECOMENDACIÓN DE ORDEN
+
+Si seguimos bien el flujo, el orden ideal es:
+
+🎵 Música de fondo + control
+✨ Animación de entrada (hero cinematic)
+🌸 partículas suaves románticas
+🌀 scroll premium suave
+💌 RSVP con feedback visual
+
+Si quieres, el siguiente paso natural sería:
+
+👉 “agrega música de fondo + control elegante”
+
+o
+
+👉 “hazlo versión premium cinematográfica”
+
+y lo llevamos a nivel producto real listo para vender.
