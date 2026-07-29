@@ -40,7 +40,14 @@ body{
   justify-content:center;
   text-align:center;
   position:relative;
+  overflow:hidden;
   background:url("images/hero.jpg") center/cover no-repeat;
+  animation:heroZoom 6s ease-out forwards;
+}
+
+@keyframes heroZoom{
+  from{ background-size:112%; }
+  to{ background-size:100%; }
 }
 
 .hero-overlay{
@@ -68,6 +75,35 @@ body{
 .quote{
   font-style:italic;
   margin-bottom:20px;
+}
+
+/* ================= HERO INTRO (entrada cinemática) ================= */
+
+.hero-layer{
+  opacity:0;
+  transform:translateY(24px);
+  animation:heroReveal 1s cubic-bezier(.22,.9,.35,1) forwards;
+}
+
+.hero-layer-1{ animation-delay:.2s; }
+.hero-layer-2{ animation-delay:.7s; }
+.hero-layer-3{ animation-delay:1.2s; }
+.hero-layer-4{ animation-delay:1.7s; }
+
+@keyframes heroReveal{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hero,
+  .hero-layer{
+    animation:none !important;
+    opacity:1 !important;
+    transform:none !important;
+  }
 }
 
 /* ================= BOTONES ================= */
@@ -283,6 +319,63 @@ iframe{
   cursor:pointer;
   z-index:999;
   box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+#musicBtn{
+  position:fixed;
+  left:18px;
+  bottom:18px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 18px;
+  border:none;
+  border-radius:30px;
+  background:var(--white);
+  color:var(--pink-dark);
+  cursor:pointer;
+  font-family:'Montserrat', sans-serif;
+  font-size:.85rem;
+  font-weight:500;
+  z-index:999;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  transition:.3s ease;
+}
+
+#musicBtn:hover{
+  transform:translateY(-2px);
+}
+
+#musicBtn.playing{
+  background:linear-gradient(135deg,var(--pink),var(--blue));
+  color:#fff;
+}
+
+#musicBtn i{
+  font-size:1rem;
+}
+
+#musicBtn.playing i{
+  animation:musicPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes musicPulse{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.2); }
+}
+
+@media(max-width:768px){
+  #musicBtn span{
+    display:none;
+  }
+
+  #musicBtn{
+    padding:0;
+    width:50px;
+    height:50px;
+    justify-content:center;
+    border-radius:50%;
+  }
 }
 
 /* ================= RESPONSIVE ================= */

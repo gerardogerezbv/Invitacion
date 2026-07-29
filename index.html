@@ -23,15 +23,15 @@
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <h1 id="coupleNames">Noe & Gera</h1>
+    <h1 id="coupleNames" class="hero-layer hero-layer-1">Noe & Gera</h1>
 
-    <p class="date">19 de Septiembre 2026</p>
+    <p class="date hero-layer hero-layer-2">19 de Septiembre 2026</p>
 
-    <p class="quote">
+    <p class="quote hero-layer hero-layer-3">
       “El amor no se busca, se construye.”
     </p>
 
-    <a href="#countdown" class="btn">Ver invitación</a>
+    <a href="#countdown" class="btn hero-layer hero-layer-4">Ver invitación</a>
   </div>
 </header>
 
@@ -125,12 +125,6 @@
   <div class="gallery" id="gallery"></div>
 </section>
 
-<!-- ================= MUSICA ================= -->
-<section class="section reveal">
-  <h2>Música</h2>
-
-  <iframe id="spotifyFrame" class="spotify"></iframe>
-</section>
 
 <!-- ================= RSVP ================= -->
 <section class="section reveal">
@@ -156,8 +150,9 @@
   <h2>Regalos</h2>
 
   <div class="card text-center">
-    <p id="aliasText">ALIAS.BANCO.EJEMPLO</p>
-    <button id="copyAlias" class="btn">Copiar alias</button>
+    <p class="mb-2">Nuestra lista de regalos está en las sucursales de: <strong>Oscar Barbieri</strong>.</p>
+    <p id="aliasText">IQ200</p>
+    <button id="copyAlias" class="btn">Copiar codigo</button>
   </div>
 </section>
 
@@ -173,6 +168,14 @@
 <div id="lightbox">
   <img id="lightboxImg" />
 </div>
+
+<!-- ================= MÚSICA DE FONDO ================= -->
+<audio id="bgMusic" loop preload="none"></audio>
+
+<button id="musicBtn" type="button" aria-pressed="false">
+  <i class="fas fa-music"></i>
+  <span id="musicBtnText">Activar música</span>
+</button>
 
 <!-- BOTONES -->
 <a id="whatsappBtn" target="_blank">

@@ -18,9 +18,13 @@ const CONFIG = {
   churchDirections: "https://maps.google.com",
   hallDirections: "https://maps.google.com",
 
-  spotify: "https://open.spotify.com/embed/playlist/37i9dQZF1DX0BcQWzuB7ZO",
+  spotify: "https://open.spotify.com/embed/playlist/37i9dQZEVXbNG2KDcFcKOF",
 
-  whatsapp: "https://wa.me/5491111111111",
+  // Música de fondo (autoplay controlado por el usuario).
+  // Colocá el archivo en assets/audio/ y actualizá la ruta.
+  backgroundMusic: "assets/audio/musica-fondo.mp3",
+
+  whatsapp: "https://wa.me/5493813047790",
 
   photos: [
     "images/1.jpg",
@@ -28,7 +32,9 @@ const CONFIG = {
     "images/3.jpg",
     "images/4.jpg",
     "images/5.jpg",
-    "images/6.jpg"
+    "images/6.jpg",
+    "images/7.jpg",
+    "images/8.jpg"
   ]
 };
 
@@ -60,10 +66,9 @@ if ($("churchBtn")) $("churchBtn").href = CONFIG.churchDirections;
 if ($("hallBtn")) $("hallBtn").href = CONFIG.hallDirections;
 
 /* =========================
-   SPOTIFY + WHATSAPP
+   WHATSAPP
 ========================= */
 
-if ($("spotifyFrame")) $("spotifyFrame").src = CONFIG.spotify;
 if ($("whatsappBtn")) $("whatsappBtn").href = CONFIG.whatsapp;
 
 /* =========================
@@ -158,6 +163,45 @@ if ($("topBtn")) {
       top: 0,
       behavior: "smooth"
     });
+  });
+}
+
+/* =========================
+   MÚSICA DE FONDO
+========================= */
+
+const musicBtn = $("musicBtn");
+const musicBtnText = $("musicBtnText");
+const bgMusic = $("bgMusic");
+
+if (musicBtn && bgMusic && CONFIG.backgroundMusic) {
+
+  bgMusic.src = CONFIG.backgroundMusic;
+  bgMusic.volume = 0.5;
+
+  let isPlaying = false;
+
+  musicBtn.addEventListener("click", () => {
+
+    if (!isPlaying) {
+      bgMusic.play()
+        .then(() => {
+          isPlaying = true;
+          musicBtn.classList.add("playing");
+          musicBtn.setAttribute("aria-pressed", "true");
+          if (musicBtnText) musicBtnText.textContent = "Pausar música";
+        })
+        .catch(() => {
+          // El navegador bloqueó la reproducción; se requiere otro toque.
+          isPlaying = false;
+        });
+    } else {
+      bgMusic.pause();
+      isPlaying = false;
+      musicBtn.classList.remove("playing");
+      musicBtn.setAttribute("aria-pressed", "false");
+      if (musicBtnText) musicBtnText.textContent = "Activar música";
+    }
   });
 }
 
