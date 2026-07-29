@@ -26,6 +26,19 @@ const CONFIG = {
 
   whatsapp: "https://wa.me/5493813047790",
 
+  // === Integración con Google Forms (RSVP) ===
+  // 1) actionUrl: tomá el link de tu formulario y cambiá "/viewform" por "/formResponse"
+  // 2) entries: los 4 números "entry.XXXXXXXXX" de tus campos
+  googleForm: {
+    actionUrl: "https://docs.google.com/forms/d/e/1FAIpQLSckWD_-bWvgamu-pm1UvNO-7NkH8Ga2KH-aWDTs6oWgM-E6Sg/formResponse",
+    entries: {
+      name: "entry.1498135098",       // Nombre completo
+      guests: "entry.1424661284",     // Cantidad de invitados
+      attendance: "entry.2606285",    // Sí/No asistiré
+      message: "entry.877086558"      // Mensaje
+    }
+  },
+
   photos: [
     "images/1.jpg",
     "images/2.jpg",
@@ -202,6 +215,87 @@ if (musicBtn && bgMusic && CONFIG.backgroundMusic) {
       musicBtn.setAttribute("aria-pressed", "false");
       if (musicBtnText) musicBtnText.textContent = "Activar música";
     }
+  });
+}
+
+/* =========================
+   RSVP → GOOGLE FORMS
+========================= */
+
+const rsvpForm = $("rsvpForm");
+
+if (rsvpForm && CONFIG.googleForm) {
+
+  rsvpForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const status = $("rsvpStatus");
+    const submitBtn = $("rsvpSubmitBtn");
+
+    const name = $("rsvpName") ? $("rsvpName").value.trim() : "";
+    const guestsRaw = $("rsvpGuests") ? $("rsvpGuests").value.trim() : "";
+    const guests = parseInt(guestsRaw, 10);
+    const attendance = $("rsvpAttendance") ? $("rsvpAttendance").value : "";
+    const message = $("rsvpMessage") ? $("rsvpMessage").value.trim() : "";
+
+    if (!name) {
+      if (status) {
+        status.textContent = "Por favor, ingresá tu nombre completo.";
+        status.className = "rsvp-status error";
+      }
+      return;
+    }
+
+    if (!guestsRaw || isNaN(guests) || guests < 1) {
+      if (status) {
+        status.textContent = "Indicá la cantidad de invitados (mínimo 1).";
+        status.className = "rsvp-status error";
+      }
+      return;
+    }
+
+    const data = new FormData();
+    data.append(CONFIG.googleForm.entries.name, name);
+    data.append(CONFIG.googleForm.entries.guests, guests);
+    data.append(CONFIG.googleForm.entries.attendance, attendance);
+    data.append(CONFIG.googleForm.entries.message, message);
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando...";
+    }
+
+    if (status) {
+      status.textContent = "";
+      status.className = "rsvp-status";
+    }
+
+    fetch(CONFIG.googleForm.actionUrl, {
+      method: "POST",
+      mode: "no-cors",
+      body: data
+    })
+      .then(() => {
+        // Google Forms responde de forma "opaca" (no-cors),
+        // así que si no hubo error de red, asumimos éxito.
+        if (status) {
+          status.textContent = "¡Gracias! Tu confirmación fue enviada ✓";
+          status.className = "rsvp-status success";
+        }
+        rsvpForm.reset();
+      })
+      .catch(() => {
+        if (status) {
+          status.textContent = "Hubo un error de conexión. Intentá de nuevo.";
+          status.className = "rsvp-status error";
+        }
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Enviar";
+        }
+      });
   });
 }
 
