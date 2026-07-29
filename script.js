@@ -9,8 +9,8 @@ const CONFIG = {
 
   date: "2026-09-19T17:00:00",
 
-  churchName: "Iglesia San José",
-  hallName: "Salón Los Álamos",
+  churchName: "Iglesia Nuestra Señora del Valle",
+  hallName: "Salón Villa Verde",
 
   churchMaps: "https://www.google.com/maps?q=iglesia&output=embed",
   hallMaps: "https://www.google.com/maps?q=salon&output=embed",
