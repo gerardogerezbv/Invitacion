@@ -30,8 +30,7 @@ const CONFIG = {
   // 1) actionUrl: tomá el link de tu formulario y cambiá "/viewform" por "/formResponse"
   // 2) entries: los 4 números "entry.XXXXXXXXX" de tus campos
   googleForm: {
-        //https://docs.google.com/forms/d/e/1FAIpQLSckWD_-bWvgamu-pm1UvNO-7NkH8Ga2KH-aWDTs6oWgM-E6Sg/formResponse
-    actionUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdoigTS8X5CWeoriEvX68LGH8rSYTThCtP502A2pg_tFnAqfQ/formResponse",
+    actionUrl: "https://docs.google.com/forms/d/e/1FAIpQLSckWD_-bWvgamu-pm1UvNO-7NkH8Ga2KH-aWDTs6oWgM-E6Sg/formResponse",
     entries: {
       name: "entry.1498135098",       // Nombre completo
       guests: "entry.877086558",     // Cantidad de invitados
