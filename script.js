@@ -34,9 +34,9 @@ const CONFIG = {
     actionUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdoigTS8X5CWeoriEvX68LGH8rSYTThCtP502A2pg_tFnAqfQ/formResponse",
     entries: {
       name: "entry.1498135098",       // Nombre completo
-      guests: "entry.1424661284",     // Cantidad de invitados
-      attendance: "entry.2606285",    // Sí/No asistiré
-      message: "entry.877086558"      // Mensaje
+      guests: "entry.877086558",     // Cantidad de invitados
+      attendance: "entry.1424661284",    // Sí/No asistiré
+      message: "entry.2606285"      // Mensaje
     }
   },
 
