@@ -134,18 +134,20 @@
 <section class="section reveal">
   <h2>Confirmar asistencia</h2>
 
-  <form class="form">
-    <input type="text" placeholder="Nombre completo" />
-    <input type="number" placeholder="Cantidad de invitados" />
+  <form class="form" id="rsvpForm">
+    <input type="text" id="rsvpName" placeholder="Nombre" required />
+    <input type="number" id="rsvpGuests" placeholder="Cantidad de invitados" min="1" required />
 
-    <select>
-      <option>Sí asistiré</option>
-      <option>No asistiré</option>
+    <select id="rsvpAttendance">
+      <option value="Si asistiré">Sí asistiré</option>
+      <option value="No asistiré">No asistiré</option>
     </select>
 
-    <textarea placeholder="Mensaje"></textarea>
+    <textarea id="rsvpMessage" placeholder="Mensaje"></textarea>
 
-    <button type="button" class="btn">Enviar</button>
+    <button type="submit" class="btn" id="rsvpSubmitBtn">Enviar</button>
+
+    <p id="rsvpStatus" class="rsvp-status" aria-live="polite"></p>
   </form>
 </section>
 
