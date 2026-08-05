@@ -12,11 +12,11 @@ const CONFIG = {
   churchName: "Nuestra Señora del Valle",
   hallName: "Salón Villa Verde",
 
-  churchMaps: "https://www.google.com/maps?q=iglesia&output=embed",
-  hallMaps: "https://www.google.com/maps?q=salon&output=embed",
+  churchMaps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7121.521590237448!2d-65.29601292528116!3d-26.815744189157844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942242d62123af13%3A0xaa2edb3420b1b358!2sParroquia%20Nuestra%20Se%C3%B1ora%20del%20Valle!5e0!3m2!1ses-419!2sar!4v1785937110380!5m2!1ses-419!2sar",
+  hallMaps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.9483936280963!2d-65.32990892528147!3d-26.809771788909234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942242f73564c141%3A0xb643b77bf29ab6fe!2sVilla%20Verde%20Fiestas%20%26%20Eventos!5e0!3m2!1ses-419!2sar!4v1785936793581!5m2!1ses-419!2sar",
 
-  churchDirections: "https://maps.google.com",
-  hallDirections: "https://maps.google.com",
+  churchDirections: "https://maps.google.com/?q=Parroquia+Nuestra+Señora+del+Valle+Tucumán",
+  hallDirections: "https://maps.google.com/?q=Villa+Verde+Fiestas+%26+Eventos+Tucumán",
 
   spotify: "https://open.spotify.com/embed/playlist/37i9dQZEVXbNG2KDcFcKOF",
 
