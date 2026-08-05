@@ -314,5 +314,16 @@ if ($("copyAlias") && $("aliasText")) {
     }, 2000);
   });
 }
+   if ($("copyAlias2") && $("aliasText2")) {
+  $("copyAlias2").addEventListener("click", () => {
+    navigator.clipboard.writeText($("aliasText2").textContent);
+
+    $("copyAlias2").textContent = "Copiado ✓";
+
+    setTimeout(() => {
+      $("copyAlias2").textContent = "Copiar alias";
+    }, 2000);
+  });
+}
 
 });
