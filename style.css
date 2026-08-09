@@ -1,400 +1,2473 @@
-:root{
-  --bg: #faf7fb;
+  /* =========================================================
+  FUENTES
+  ========================================================= */
+
+  /*
+  GOOGLE FONTS
+  ------------
+
+  Las fuentes utilizadas en toda la invitación son:
+
+  1. GREAT VIBES
+
+    * Tipografía manuscrita, elegante y romántica.
+    * Se utiliza principalmente en:
+      • Nombres de los novios (H1)
+      • Fecha
+      • Frase de la portada
+
+  2. VIDALOKA
+
+    * Tipografía serif elegante y clásica.
+    * Se utiliza en:
+      • Títulos de las secciones
+      • Números destacados del contador
+
+  3. LATO
+
+    * Tipografía moderna, limpia y muy legible.
+    * Se utiliza en:
+      • Textos generales
+      • Botones
+      • Formularios
+      • Enlaces
+      • Elementos secundarios
+
+  IMPORTANTE:
+  Los @import deben utilizar URLs normales.
+  No deben contener formato Markdown ni corchetes.
+  */
+
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;500;600;700&family=Vidaloka&display=swap');
+  /*@import url('https://googleapis.com');*/
+  /* =========================================================
+  VARIABLES GENERALES
+  ========================================================= */
+
+  :root {
+
+  /* -------------------------------------------------------
+  COLOR DE FONDO GENERAL
+  -------------------------------------------------------
+
+  ```
+  hsla(55, 44%, 80%, 0.959)
+
+  Es un tono crema/beige cálido y suave.
+  Se utiliza como fondo principal de la página.
+
+  H = tono
+  S = saturación
+  L = luminosidad
+  A = transparencia
+  ```
+
+  */
+  --bg: hsla(55, 44%, 80%, 0.959);
+
+  /* -------------------------------------------------------
+  BLANCO
+  -------------------------------------------------------
+
+  ```
+  #ffffff
+
+  Blanco puro.
+  Se utiliza en tarjetas, botones y elementos
+  que necesitan un fondo claro.
+  ```
+
+  */
   --white: #ffffff;
 
-  --pink: #f7b6c8;
-  --pink-dark: #e88aa8;
+  /* -------------------------------------------------------
+  ROSA PRINCIPAL
+  -------------------------------------------------------
 
-  --blue: #b7d7ff;
-  --blue-dark: #7fb3ff;
+  ```
+  #7c75752f
 
+  Es un tono gris/rosado con transparencia.
+
+  Se utiliza principalmente en:
+  • Degradados
+  • Botones
+  • Elementos decorativos
+
+  La última parte "2f" corresponde a la transparencia
+  del color hexadecimal.
+  ```
+
+  */
+  --pink: #7c75752f;
+
+  /* -------------------------------------------------------
+  ROSA OSCURO / COLOR DE TÍTULOS
+  -------------------------------------------------------
+
+  ```
+  hsl(0, 1%, 50%)
+
+  Actualmente visualmente se comporta como un gris medio.
+
+  Se utiliza en:
+  • Títulos de secciones
+  • Números del contador
+  • Algunos elementos destacados
+  ```
+
+  */
+  --pink-dark: hsl(0, 1%, 50%);
+
+  /* -------------------------------------------------------
+  AZUL / GRIS AZULADO
+  -------------------------------------------------------
+
+  ```
+  hsla(180, 2%, 43%, 0.897)
+
+  Es un gris azulado oscuro con transparencia.
+
+  Se utiliza principalmente como segundo color
+  de los degradados.
+  ```
+
+  */
+  --blue: hsla(180, 2%, 43%, 0.897);
+
+  /* -------------------------------------------------------
+  AZUL OSCURO
+  -------------------------------------------------------
+
+  ```
+  hsl(0, 1%, 50%)
+
+  Actualmente es prácticamente el mismo tono que
+  --pink-dark.
+
+  Se utiliza para elementos destacados.
+  ```
+
+  */
+  --blue-dark: hsl(0, 1%, 50%);
+
+  /* -------------------------------------------------------
+  COLOR PRINCIPAL DEL TEXTO
+  -------------------------------------------------------
+
+  ```
+  #2b2b2b
+
+  Gris muy oscuro.
+
+  Es más suave visualmente que utilizar negro puro.
+  Se utiliza para el texto general.
+  ```
+
+  */
   --text: #2b2b2b;
+
+  /* -------------------------------------------------------
+  COLOR DE TEXTO SECUNDARIO
+  -------------------------------------------------------
+
+  ```
+  #6b6b6b
+
+  Gris medio utilizado para:
+  • Descripciones
+  • Textos secundarios
+  • Información complementaria
+  ```
+
+  */
   --muted: #6b6b6b;
 
-  --shadow: rgba(0,0,0,.08);
-}
+  /* -------------------------------------------------------
+  SOMBRAS
+  -------------------------------------------------------
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  ```
+  rgba(59, 16, 16, 0.08)
 
-html{
-  scroll-behavior:smooth;
-}
+  Sombra muy suave con un ligero tono cálido.
 
-body{
-  font-family:'Montserrat', sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-}
+  La transparencia 0.08 hace que la sombra sea
+  discreta y elegante.
+  ```
 
-/* ================= HERO ================= */
-
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  background:url("images/hero.jpg") center/cover no-repeat;
-  animation:heroZoom 6s ease-out forwards;
-}
-
-@keyframes heroZoom{
-  from{ background-size:112%; }
-  to{ background-size:100%; }
-}
-
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(255,255,255,.35);
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  padding:20px;
-}
-
-.hero h1{
-  font-family:'Cormorant Garamond', serif;
-  font-size:4rem;
-}
-
-.date{
-  margin:10px 0;
-  color:var(--muted);
-}
-
-.quote{
-  font-style:italic;
-  margin-bottom:20px;
-}
-
-/* ================= HERO INTRO (entrada cinemática) ================= */
-
-.hero-layer{
-  opacity:0;
-  transform:translateY(24px);
-  animation:heroReveal 1s cubic-bezier(.22,.9,.35,1) forwards;
-}
-
-.hero-layer-1{ animation-delay:.2s; }
-.hero-layer-2{ animation-delay:.7s; }
-.hero-layer-3{ animation-delay:1.2s; }
-.hero-layer-4{ animation-delay:1.7s; }
-
-@keyframes heroReveal{
-  to{
-    opacity:1;
-    transform:translateY(0);
+  */
+  --shadow: rgba(59, 16, 16, 0.08);
   }
-}
 
-@media (prefers-reduced-motion: reduce){
+  /* =========================================================
+  RESET
+  ========================================================= */
+
+  /*
+  Eliminamos los márgenes y espacios predeterminados
+  que los navegadores aplican a los elementos.
+
+  IMPORTANTE:
+  Se utiliza "*" y no "-".
+
+  box-sizing: border-box significa que el padding
+  y el borde quedan incluidos dentro del ancho
+  y alto definidos.
+  */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+  /* =========================================================
+  CONFIGURACIÓN GENERAL
+  ========================================================= */
+
+  html {
+
+  /* Desplazamiento suave al utilizar enlaces internos */
+  scroll-behavior: smooth;
+
+  width: 100%;
+  min-height: 100%;
+  }
+
+  body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100vh;
+
+  /*
+  Lato es la fuente general de la página.
+  Es limpia, moderna y fácil de leer.
+  */
+  font-family: 'Lato', sans-serif;
+
+  /*
+  Fondo general de la invitación.
+  */
+  background: var(--bg);
+
+  /*
+  Color general de los textos.
+  */
+  color: var(--text);
+
+  /*
+  Evita desplazamiento horizontal accidental.
+  Esto es especialmente importante en celulares.
+  */
+  overflow-x: hidden;
+  }
+
+  /* =========================================================
+  TIPOGRAFÍA GENERAL
+  ========================================================= */
+
+  /*
+  VIDALOKA
+  --------
+
+  Se utiliza para títulos elegantes y serifados.
+  */
+
+  h1,
+  h2 {
+  font-family: 'Vidaloka', serif;
+  font-weight: 400;
+  }
+
+  /*
+  LATO
+  ----
+
+  Se utiliza para textos generales, botones,
+  formularios y enlaces.
+  */
+
+  p,
+  span,
+  button,
+  input,
+  textarea,
+  select,
+  a {
+  font-family: 'Lato', sans-serif;
+  }
+
+  /*
+  Las imágenes e iframes nunca deben superar
+  el ancho de su contenedor.
+  */
+
+  img,
+  iframe {
+  display: block;
+  max-width: 100%;
+  }
+
+  /* =========================================================
+  HERO / PORTADA
+  ========================================================= */
+
+  .hero {
+  position: relative;
+
+  /*
+  Ocupa todo el ancho disponible.
+  */
+  width: 100%;
+
+  /*
+  Ocupa toda la altura de la pantalla.
+  */
+  height: 100vh;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  /*
+  El hero utiliza flex para mantener
+  su contenido correctamente estructurado.
+  */
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  /*
+  Oculta cualquier elemento que sobresalga
+  de los límites de la portada.
+  */
+  overflow: hidden;
+
+  /*
+  Imagen principal de la portada.
+  */
+  background-image: url("images/hero.jpg");
+
+  /*
+  La fotografía queda centrada.
+  */
+  background-position: center center;
+
+  /*
+  Evita que la imagen se repita.
+  */
+  background-repeat: no-repeat;
+
+  /*
+  La fotografía cubre completamente el hero.
+  */
+  background-size: cover;
+
+  /*
+  Centrado general del texto.
+  */
+  text-align: center;
+  }
+
+  /* =========================================================
+  ANIMACIÓN DE ZOOM DE LA FOTOGRAFÍA
+  ========================================================= */
+
+  /*
+  Esta animación crea un pequeño acercamiento
+  de la fotografía.
+
+  Actualmente solamente está definida.
+
+  Para utilizarla se puede agregar dentro de .hero:
+
+  animation: heroZoom 8s ease forwards;
+  */
+
+  @keyframes heroZoom {
+
+  from {
+  background-size: 112%;
+  }
+
+  to {
+  background-size: 100%;
+  }
+  }
+
+  /* =========================================================
+  CAPA SOBRE LA FOTOGRAFÍA
+  ========================================================= */
+
+  /*
+  Esta capa se coloca encima de la fotografía.
+
+  rgba(255,255,255,.35)
+  = blanco con aproximadamente 35% de opacidad.
+
+  Su función es aclarar ligeramente la imagen.
+  */
+
+  .hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(255, 255, 255, .35);
+
+  /*
+  La capa queda por encima de la fotografía.
+  */
+  z-index: 1;
+  }
+
+  /* =========================================================
+  CONTENIDO DE LA PORTADA
+  ========================================================= */
+
+  .hero-content {
+  position: relative;
+
+  /*
+  Coloca el contenido por encima
+  de la capa blanca.
+  */
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  /*
+  Espacio lateral para evitar que el contenido
+  toque los bordes de la pantalla.
+  */
+  padding: 0 20px;
+
+  /*
+  Todo el texto se centra horizontalmente.
+  */
+  text-align: center;
+  }
+
+  /* =========================================================
+  NOMBRE DE LOS NOVIOS
+  ========================================================= */
+
+  /*
+  El H1 se posiciona de forma absoluta.
+
+  left: 0
+  width: 100%
+
+  hacen que el bloque ocupe todo el ancho.
+
+  text-align: center
+
+  se encarga de centrar realmente el texto.
+
+  IMPORTANTE:
+  No utilizamos transform: translateX()
+  para centrar el H1.
+
+  Esto evita conflictos con las animaciones.
+  */
+
+  .hero h1 {
+  position: absolute;
+
+  /*
+  Distancia desde la parte superior.
+  */
+  top: 30px;
+
+  /*
+  El bloque ocupa todo el ancho.
+  */
+  left: 0;
+  width: 100%;
+
+  margin: 0;
+
+  /*
+  Great Vibes:
+  tipografía manuscrita y romántica.
+  */
+  font-family: 'Great Vibes', cursive;
+
+  /*
+  Tamaño grande en escritorio.
+  */
+  font-size: 7rem;
+
+  font-weight: 400;
+
+  /*
+  Altura de línea controlada.
+  */
+  line-height: 1.1;
+
+  /*
+  Color blanco.
+  */
+  color: #ffffff;
+
+  /*
+  Sombra para mejorar la lectura
+  sobre la fotografía.
+  */
+  text-shadow:
+  0 2px 8px rgba(0, 0, 0, .25),
+  0 4px 20px rgba(0, 0, 0, .15);
+
+  /*
+  Centrado horizontal.
+  */
+  text-align: center;
+  }
+
+  /* =========================================================
+  FECHA
+  ========================================================= */
+
+  .date {
+  position: absolute;
+
+  /*
+  Distancia desde el borde inferior.
+  */
+  bottom: 75px;
+
+  /*
+  El bloque empieza desde el borde izquierdo.
+  */
+  left: 0;
+
+  /*
+  Ocupa todo el ancho de la portada.
+  */
+  width: 100%;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  /*
+  Great Vibes mantiene el estilo
+  romántico de la portada.
+  */
+  font-family: 'Vidaloka', cursive;
+
+  font-size: 0.6rem;
+
+  /*
+  Great Vibes trabaja principalmente
+  con peso regular.
+  */
+  font-weight: 400;
+
+  line-height: 2.3;
+
+  /*
+  Sombra para mejorar la lectura.
+  */
+  text-shadow:
+  0 4px 6px rgba(0, 0, 0, .25);
+
+  /*
+  Centrado horizontal.
+  */
+  text-align: center;
+  }
+
+  /* =========================================================
+  FRASE DE LA PORTADA
+  ========================================================= */
+
+  /*
+  HTML esperado:
+
+    <p class="quote hero-layer hero-layer-3">
+      “El amor se construye.”
+    </p>
+
+  IMPORTANTE:
+  La frase NO utiliza:
+
+  transform: translateX(-50%);
+
+  porque .hero-layer también controla transformaciones
+  durante la animación.
+
+  El centrado se consigue únicamente mediante:
+
+  left: 0
+  width: 100%
+  text-align: center
+
+  De esta forma la frase no puede desplazarse
+  accidentalmente hacia la derecha.
+  */
+
+  .quote {
+  position: absolute;
+
+  /*
+  Distancia desde la parte inferior.
+  */
+  bottom: 35px;
+
+  /*
+  Empieza exactamente en el borde izquierdo.
+  */
+  left: 0;
+
+  /*
+  Ocupa todo el ancho disponible.
+  */
+  width: 100%;
+
+  /*
+  Evitamos un ancho máximo que pueda alterar
+  el centrado del bloque.
+  */
+  max-width: none;
+
+  margin: 0;
+
+  /*
+  Padding lateral para evitar que el texto
+  toque los bordes del celular.
+  */
+  padding: 0 20px;
+
+  /*
+  Hace que el texto quede exactamente
+  en el centro del bloque.
+  */
+  text-align: center;
+
+  color: #ffffff;
+
+  /*
+  Great Vibes para mantener la estética
+  manuscrita y romántica.
+  */
+  font-family: 'Great Vibes', cursive;
+
+  font-size: 1rem;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  line-height: 1.4;
+
+  /*
+  Sombra para mejorar la legibilidad.
+  */
+  text-shadow:
+  0 2px 6px rgba(0, 0, 0, .25);
+
+  /*
+  IMPORTANTE:
+  No colocar transform aquí.
+  */
+  }
+
+  /* =========================================================
+  ANIMACIÓN DEL CONTENIDO DEL HERO
+  ========================================================= */
+
+  /*
+  Los elementos con .hero-layer aparecen
+  suavemente mediante un cambio de opacidad.
+
+  NO utilizamos transform aquí.
+
+  Esto es intencional.
+
+  Si utilizáramos:
+
+  transform: translateY(...)
+
+  entraríamos en conflicto con cualquier elemento
+  que necesitara utilizar transform para centrarse.
+
+  De esta forma H1, fecha y frase mantienen
+  siempre su alineación.
+  */
+
+  .hero-layer {
+  opacity: 0;
+
+  animation:
+  heroReveal 1s cubic-bezier(.22, .9, .35, 1)
+  forwards;
+  }
+
+  /*
+  H1:
+  aparece primero.
+  */
+
+  .hero-layer-1 {
+  animation-delay: .2s;
+  }
+
+  /*
+  Fecha:
+  aparece después del nombre.
+  */
+
+  .hero-layer-2 {
+  animation-delay: .7s;
+  }
+
+  /*
+  Frase:
+  aparece después de la fecha.
+  */
+
+  .hero-layer-3 {
+  animation-delay: 1.2s;
+  }
+
+  /*
+  Cuarta capa:
+  disponible para futuros elementos.
+  */
+
+  .hero-layer-4 {
+  animation-delay: 1.7s;
+  }
+
+  /* =========================================================
+  ANIMACIÓN DE APARICIÓN
+  ========================================================= */
+
+  @keyframes heroReveal {
+
+  to {
+  opacity: 1;
+  }
+  }
+
+  /* =========================================================
+  REDUCCIÓN DE ANIMACIONES
+  ========================================================= */
+
+  /*
+  Para usuarios que prefieren reducir
+  las animaciones del sitio.
+
+  Los elementos aparecen directamente
+  sin animación.
+  */
+
+  @media (prefers-reduced-motion: reduce) {
+
   .hero,
-  .hero-layer{
-    animation:none !important;
-    opacity:1 !important;
-    transform:none !important;
+  .hero-layer {
+  animation: none !important;
+  opacity: 1 !important;
+  }
+  }
+
+  /* =========================================================
+    BOTÓN DE MÚSICA
+    ========================================================= */
+
+  /*
+    Botón flotante de música.
+
+    - Se mantiene fijo en la esquina inferior izquierda.
+    - El tamaño está pensado para que sea cómodo de tocar
+      en celulares.
+    - El fondo blanco genera contraste sobre la portada.
+    - La sombra crea profundidad sin ser demasiado fuerte.
+  */
+
+  #musicBtn {
+    position: fixed;
+
+    /* Distancia respecto a los bordes de la pantalla */
+    left: 18px;
+    bottom: 18px;
+
+    /* Tamaño del botón */
+    width: 52px;
+    height: 52px;
+
+    /* Forma circular */
+    border: none;
+    border-radius: 50%;
+
+    /* Centrado perfecto del icono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Fondo y color */
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--pink-dark);
+
+    /* Tipografía */
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+
+    /* El botón es interactivo */
+    cursor: pointer;
+
+    /*
+      Permite que permanezca por encima
+      del resto del contenido.
+    */
+    z-index: 999;
+
+    /*
+      Sombra suave y elegante.
+    */
+    box-shadow:
+      0 6px 18px rgba(0, 0, 0, 0.16);
+
+    /*
+      Transiciones suaves para los efectos
+      de movimiento y cambio de color.
+    */
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease,
+      color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+
+  /* =========================================================
+    ICONO DE MÚSICA
+    ========================================================= */
+
+  /*
+    Ajusta el tamaño del icono que tengas dentro
+    del botón, por ejemplo <i>.
+  */
+
+  #musicBtn i {
+    font-size: 1.15rem;
+
+    /*
+      Evita que el icono genere espacios
+      verticales inesperados.
+    */
+    line-height: 1;
+  }
+
+
+  /* =========================================================
+    EFECTO AL PASAR EL MOUSE
+    ========================================================= */
+
+  #musicBtn:hover {
+    transform: translateY(-3px);
+
+    /*
+      La sombra aumenta ligeramente
+      para dar sensación de elevación.
+    */
+    box-shadow:
+      0 9px 22px rgba(0, 0, 0, 0.20);
+  }
+
+
+  /* =========================================================
+    BOTÓN CUANDO LA MÚSICA ESTÁ ACTIVA
+    ========================================================= */
+
+  /*
+    Cuando JavaScript agrega la clase .playing,
+    el botón cambia al degradado de la invitación.
+  */
+
+  #musicBtn.playing {
+    background: linear-gradient(
+      135deg,
+      var(--pink),
+      var(--blue)
+    );
+
+    color: #ffffff;
+
+    box-shadow:
+      0 8px 22px rgba(0, 0, 0, 0.20);
+  }
+
+
+  /* =========================================================
+    ANIMACIÓN DEL ICONO
+    ========================================================= */
+
+  /*
+    El icono realiza un pequeño pulso
+    cuando la música está reproduciéndose.
+  */
+
+  #musicBtn.playing i {
+    animation:
+      musicPulse 1.4s ease-in-out infinite;
+  }
+
+
+  /* =========================================================
+    ANIMACIÓN DEL ICONO
+    ========================================================= */
+
+  @keyframes musicPulse {
+
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.18);
+    }
+  }
+
+
+  /* =========================================================
+    CELULARES
+    ========================================================= */
+
+  @media (max-width: 768px) {
+
+    /*
+      En celulares mantenemos el botón circular,
+      pero ligeramente más compacto.
+    */
+
+    #musicBtn {
+      left: 15px;
+      bottom: 15px;
+
+      width: 50px;
+      height: 50px;
+
+      padding: 0;
+
+      border-radius: 50%;
+    }
+
+    /*
+      Ocultamos cualquier texto del botón
+      y dejamos solamente el icono.
+    */
+
+    #musicBtn span {
+      display: none;
+    }
+
+    #musicBtn i {
+      font-size: 1.05rem;
+    }
+  }
+
+
+  /* =========================================================
+    CELULARES PEQUEÑOS
+    ========================================================= */
+
+  @media (max-width: 480px) {
+
+    #musicBtn {
+      left: 14px;
+      bottom: 14px;
+
+      width: 48px;
+      height: 48px;
+    }
+
+    #musicBtn i {
+      font-size: 1rem;
+    }
+    
+}
+
+
+  /* =========================================================
+  SECCIONES
+  ========================================================= */
+
+  .section {
+  width: 100%;
+
+  /*
+  Evita que el contenido sea demasiado ancho
+  en monitores grandes.
+  */
+  max-width: 1100px;
+
+  /*
+  Espaciado:
+  70px arriba/abajo
+  20px izquierda/derecha
+  */
+  padding: 70px 20px;
+
+  /*
+  Centra la sección.
+  */
+  margin: 0 auto;
+  }
+
+  /* =========================================================
+  TÍTULOS DE LAS SECCIONES
+  ========================================================= */
+
+  .section h2 {
+  text-align: center;
+
+  font-family: 'Vidaloka', serif;
+
+  font-size: 2.4rem;
+
+  font-weight: 400;
+
+  margin-bottom: 30px;
+
+  /*
+  Color utilizado para los títulos.
+  */
+  color: var(--pink-dark);
+  }
+
+  /* =========================================================
+  UTILIDADES
+  ========================================================= */
+
+  .text-center {
+  text-align: center;
+
+  color: var(--muted);
+  font-size: 24px;
+  font-family: 'Great Vibes', cursive;
+  }
+
+  /* =========================================================
+  CONTADOR
+  ========================================================= */
+
+  .grid-countdown {
+  display: grid;
+
+  /*
+  Las columnas se adaptan automáticamente
+  al tamaño de la pantalla.
+  */
+  grid-template-columns:
+  repeat(auto-fit, minmax(120px, 1fr));
+
+  gap: 15px;
+  }
+
+  /* =========================================================
+  TARJETAS DEL CONTADOR
+  ========================================================= */
+
+  .card {
+  /*
+  Fondo blanco.
+  */
+  background: var(--white);
+
+  padding: 20px;
+
+  border-radius: 16px;
+
+  /*
+  Sombra cálida y muy suave.
+  */
+  box-shadow:
+  0 6px 18px var(--shadow);
+
+  text-align: center;
+
+  margin-top: 15px;
+  }
+
+  /*
+  Números del contador.
+  */
+
+  .card span {
+  font-family: 'Vidaloka', serif;
+
+  font-size: 2rem;
+
+  font-weight: 400;
+
+  color: var(--pink-dark);
+  }
+
+  .card p {
+  font-family: 'Lato', sans-serif;
+  }
+
+  /* =========================================================
+   MOMENTO ESPECIAL
+   ========================================================= */
+
+/*
+   Contenedor del momento.
+
+   Como solamente tendremos una fotografía,
+   no necesitamos una timeline compleja.
+*/
+
+.timeline {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   TARJETA "NOS CONOCIMOS"
+   ========================================================= */
+
+/*
+   Tarjeta con fotografía de fondo.
+
+   CAMBIA ESTA RUTA por la ubicación real
+   de tu imagen.
+
+   Ejemplo:
+
+   images/nos-conocimos.jpg
+*/
+
+.timeline-item {
+  position: relative;
+
+  width: 100%;
+  min-height: 300px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  /*
+     IMAGEN DE FONDO
+
+     Coloca aquí tu fotografía.
+  */
+  background-image: url("images/nos-conocimos.jpeg");
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /*
+     Sombra elegante alrededor
+     de la fotografía.
+  */
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================================================
+   CAPA SEMITRANSPARENTE
+   ========================================================= */
+
+/*
+   Esta capa se coloca encima de la fotografía.
+
+   El 0.30 significa aproximadamente 30% de opacidad.
+
+   Puedes cambiarlo:
+
+   0.20 = fotografía más visible
+   0.30 = equilibrio
+   0.40 = texto más visible
+   0.50 = fotografía bastante oscura
+*/
+
+.timeline-item::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.30);
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   FRASE
+   ========================================================= */
+
+/*
+   El texto queda encima de la fotografía
+   y de la capa semitransparente.
+*/
+
+.timeline-item span {
+  position: relative;
+
+  z-index: 2;
+
+  /*
+     Great Vibes mantiene el estilo romántico
+     utilizado en la portada.
+  */
+  font-family: 'Great Vibes', cursive;
+
+  font-size: 3rem;
+
+  font-weight: 400;
+
+  line-height: 1.2;
+
+  text-align: center;
+
+  color: #ffffff;
+
+  /*
+     Sombra para que la frase pueda leerse
+     aunque la fotografía tenga zonas claras.
+  */
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.45),
+    0 4px 18px rgba(0, 0, 0, 0.25);
+
+  padding: 20px;
+}
+
+
+/* =========================================================
+   EFECTO AL PASAR EL MOUSE
+   ========================================================= */
+
+.timeline-item {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================================
+   CELULARES
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .timeline-item {
+    min-height: 240px;
+
+    border-radius: 18px;
+  }
+
+  .timeline-item span {
+    font-size: 2.5rem;
+
+    padding: 15px;
   }
 }
 
-/* ================= BOTONES ================= */
 
-.btn{
-  display:inline-block;
-  padding:12px 22px;
-  border-radius:30px;
-  border:none;
-  cursor:pointer;
-  text-decoration:none;
-  color:#fff;
+/* =========================================================
+   CELULARES PEQUEÑOS
+   ========================================================= */
 
-  background:linear-gradient(135deg,var(--pink),var(--blue));
-  transition:.3s ease;
-}
+@media (max-width: 480px) {
 
-.btn:hover{
-  transform:translateY(-2px);
-  opacity:.9;
-}
+  .timeline-item {
+    min-height: 210px;
 
-/* ================= SECCIONES ================= */
-
-.section{
-  padding:70px 20px;
-  max-width:1100px;
-  margin:auto;
-}
-
-.section h2{
-  text-align:center;
-  font-size:2.4rem;
-  margin-bottom:30px;
-  color:var(--pink-dark);
-}
-
-/* ================= UTILIDADES ================= */
-
-.text-center{
-  text-align:center;
-  color:var(--muted);
-}
-
-/* ================= COUNTDOWN ================= */
-
-.grid-countdown{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-  gap:15px;
-}
-
-.card{
-  background:var(--white);
-  padding:20px;
-  border-radius:16px;
-  box-shadow:0 6px 18px var(--shadow);
-  text-align:center;
-}
-
-.card span{
-  font-size:2rem;
-  font-weight:bold;
-  color:var(--blue-dark);
-}
-
-/* ================= TIMELINE ================= */
-
-.timeline{
-  max-width:700px;
-  margin:auto;
-  border-left:3px solid var(--pink);
-  padding-left:20px;
-}
-
-.timeline-item{
-  background:var(--white);
-  padding:15px;
-  margin-bottom:15px;
-  border-radius:12px;
-  box-shadow:0 4px 12px var(--shadow);
-}
-
-/* ================= CARDS ================= */
-
-.card{
-  background:var(--white);
-  padding:20px;
-  border-radius:16px;
-  box-shadow:0 6px 18px var(--shadow);
-  margin-top:15px;
-}
-
-/* ================= IFRAME ================= */
-
-iframe{
-  width:100%;
-  height:320px;
-  border:none;
-  border-radius:12px;
-  margin-top:15px;
-}
-
-/* ================= GALERÍA ================= */
-
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:12px;
-}
-
-.gallery img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:14px;
-  box-shadow:0 6px 15px var(--shadow);
-  cursor:pointer;
-  transition:.3s;
-}
-
-.gallery img:hover{
-  transform:scale(1.03);
-}
-
-/* ================= FORM ================= */
-
-.form{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  max-width:600px;
-  margin:auto;
-}
-
-.form input,
-.form textarea,
-.form select{
-  padding:12px;
-  border-radius:10px;
-  border:1px solid #ddd;
-  outline:none;
-}
-
-/* ================= SPOTIFY ================= */
-
-.spotify{
-  width:100%;
-  height:352px;
-  border-radius:12px;
-}
-
-/* ================= FINAL ================= */
-
-.final{
-  text-align:center;
-}
-
-.final-img{
-  width:100%;
-  max-width:500px;
-  margin-top:20px;
-  border-radius:16px;
-}
-
-/* ================= LIGHTBOX ================= */
-
-#lightbox{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-
-#lightbox img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:10px;
-}
-
-/* ================= BOTONES FLOTANTES ================= */
-
-#whatsappBtn{
-  position:fixed;
-  right:18px;
-  bottom:85px;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:#25D366;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
-  z-index:999;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
-
-#topBtn{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  border:none;
-  background:var(--pink);
-  color:white;
-  cursor:pointer;
-  z-index:999;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
-
-#musicBtn{
-  position:fixed;
-  left:18px;
-  bottom:18px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:12px 18px;
-  border:none;
-  border-radius:30px;
-  background:var(--white);
-  color:var(--pink-dark);
-  cursor:pointer;
-  font-family:'Montserrat', sans-serif;
-  font-size:.85rem;
-  font-weight:500;
-  z-index:999;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
-  transition:.3s ease;
-}
-
-#musicBtn:hover{
-  transform:translateY(-2px);
-}
-
-#musicBtn.playing{
-  background:linear-gradient(135deg,var(--pink),var(--blue));
-  color:#fff;
-}
-
-#musicBtn i{
-  font-size:1rem;
-}
-
-#musicBtn.playing i{
-  animation:musicPulse 1.4s ease-in-out infinite;
-}
-
-@keyframes musicPulse{
-  0%,100%{ transform:scale(1); }
-  50%{ transform:scale(1.2); }
-}
-
-@media(max-width:768px){
-  #musicBtn span{
-    display:none;
+    border-radius: 16px;
   }
 
-  #musicBtn{
-    padding:0;
-    width:50px;
-    height:50px;
-    justify-content:center;
-    border-radius:50%;
+  .timeline-item span {
+    font-size: 2.2rem;
+
+    padding: 12px;
+  }
+}
+  /* =========================================================
+  MAPAS / IFRAMES
+  ========================================================= */
+
+  iframe {
+  width: 100%;
+
+  height: 320px;
+
+  border: 0;
+
+  outline: none;
+
+  border-radius: 12px;
+
+  margin-top: 15px;
+  }
+
+/* =========================================================
+   GALERÍA / SLIDER
+========================================================= */
+
+.gallery-slide {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  height: 500px;
+  margin: 0 auto;
+
+  overflow: hidden;
+  border-radius: 20px;
+
+  background: #eee;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.16);
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.gallery-slide img:hover {
+  transform: scale(1.02);
+}
+
+/* =========================================================
+   BOTONES DEL SLIDER
+========================================================= */
+
+.slider-btn {
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 48px;
+  height: 48px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.90);
+  color: var(--pink-dark);
+
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 20;
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.slider-btn:hover {
+  background: var(--pink-dark);
+  color: #ffffff;
+
+  transform: translateY(-50%) scale(1.08);
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.22);
+}
+
+.slider-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.slider-prev {
+  left: 15px;
+}
+
+.slider-next {
+  right: 15px;
+}
+
+/* =========================================================
+   PUNTOS DEL SLIDER
+========================================================= */
+
+.gallery-dots {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+.gallery-dot {
+  width: 10px;
+  height: 10px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(124, 117, 117, 0.35);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.gallery-dot:hover {
+  transform: scale(1.2);
+}
+
+.gallery-dot.active {
+  background: var(--pink-dark);
+
+  transform: scale(1.25);
+}
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .gallery-slide {
+    height: 400px;
+    border-radius: 18px;
+  }
+
+  .slider-btn {
+    width: 42px;
+    height: 42px;
+
+    font-size: 25px;
+  }
+
+  .slider-prev {
+    left: 10px;
+  }
+
+  .slider-next {
+    right: 10px;
   }
 }
 
-/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
 
-@media(max-width:768px){
-
-  .hero h1{
-    font-size:2.6rem;
+  .gallery-slide {
+    height: 320px;
+    border-radius: 16px;
   }
 
-  .section h2{
-    font-size:2rem;
+  .slider-btn {
+    width: 38px;
+    height: 38px;
+
+    font-size: 22px;
   }
 
-  iframe{
-    height:250px;
+  .slider-prev {
+    left: 8px;
   }
 
-  .gallery img{
-    height:180px;
+  .slider-next {
+    right: 8px;
   }
 }
+
+  /* =========================================================
+  FORMULARIO RSVP
+  ========================================================= */
+
+  .form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  /*
+  Ancho máximo del formulario.
+  */
+  max-width: 600px;
+
+  /*
+  Centrado horizontal.
+  */
+  margin: auto;
+  }
+
+  /*
+  Campos del formulario.
+  */
+
+  .form input,
+  .form textarea,
+  .form select {
+  width: 100%;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  border: 1px solid #ddd;
+
+  outline: none;
+
+  font-family: 'Lato', sans-serif;
+  }
+
+  /*
+  Campos deshabilitados.
+  */
+
+  .form select:disabled,
+  .form input:disabled,
+  .form textarea:disabled {
+  opacity: .6;
+  }
+
+  /*
+  Mensaje de estado del RSVP.
+  */
+
+  .rsvp-status {
+  text-align: center;
+
+  font-family: 'Lato', sans-serif;
+
+  font-size: .9rem;
+
+  /*
+  Reserva espacio aunque no exista
+  todavía ningún mensaje.
+  */
+  min-height: 1.2em;
+  }
+
+  /*
+  Mensaje exitoso.
+  */
+
+  .rsvp-status.success {
+  color: #3a9d5d;
+
+  font-weight: 600;
+  }
+
+  /*
+  Mensaje de error.
+  */
+
+  .rsvp-status.error {
+  color: #d1495b;
+
+  font-weight: 600;
+  }
+
+  /*
+  Botón deshabilitado.
+  */
+
+  .btn:disabled {
+  opacity: .6;
+
+  cursor: not-allowed;
+
+  transform: none;
+  }
+
+  /* =========================================================
+  SPOTIFY
+  ========================================================= */
+
+  .spotify {
+  width: 100%;
+
+  height: 352px;
+
+  border-radius: 12px;
+  }
+
+  /* =========================================================
+  SECCIÓN FINAL
+  ========================================================= */
+
+  .final {
+  text-align: center;
+  }
+
+  .final-img {
+  width: 100%;
+
+  max-width: 500px;
+
+  /*
+  Centrado automático de la imagen.
+  */
+  margin: 20px auto 0;
+
+  border-radius: 16px;
+  }
+
+  /* =========================================================
+  LIGHTBOX
+  ========================================================= */
+
+  #lightbox {
+  /*
+  Oculto inicialmente.
+  */
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  /*
+  Fondo negro con 90% de opacidad.
+  */
+  background: rgba(0, 0, 0, .9);
+
+  /*
+  Centra la imagen horizontal y verticalmente
+  cuando el elemento se muestra.
+  */
+  justify-content: center;
+
+  align-items: center;
+
+  /*
+  Valor alto para mantenerlo por encima
+  del resto de elementos.
+  */
+  z-index: 9999;
+  }
+
+  #lightbox img {
+  max-width: 90%;
+
+  max-height: 90%;
+
+  border-radius: 10px;
+  }
+
+  /* =========================================================
+  BOTÓN FLOTANTE DE WHATSAPP
+  ========================================================= */
+
+  #whatsappBtn {
+  position: fixed;
+
+  /*
+  Separación respecto al borde derecho.
+  */
+  right: 18px;
+
+  /*
+  Se coloca encima del botón volver arriba.
+  */
+  bottom: 85px;
+
+  width: 55px;
+
+  height: 55px;
+
+  border-radius: 50%;
+
+  /*
+  Verde utilizado por WhatsApp.
+  */
+  background: #25D366;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-family: 'Lato', sans-serif;
+
+  font-size: 26px;
+
+  z-index: 999;
+
+  box-shadow:
+  0 10px 25px rgba(0, 0, 0, .15);
+  }
+
+  /* =========================================================
+  BOTÓN VOLVER ARRIBA
+  ========================================================= */
+
+  #topBtn {
+  position: fixed;
+
+  right: 18px;
+
+  bottom: 18px;
+
+  width: 50px;
+
+  height: 50px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  /*
+  Utiliza el color rosa principal.
+  */
+  background: var(--pink);
+
+  color: white;
+
+  cursor: pointer;
+
+  z-index: 999;
+
+  box-shadow:
+  0 10px 25px rgba(0, 0, 0, .15);
+  }
+  /* =========================================================
+   BOTONES PRINCIPALES
+   ========================================================= */
+
+/*
+   Estos botones se utilizan en:
+
+   - "Cómo llegar" de la iglesia
+   - "Cómo llegar" del salón
+   - "Enviar" del formulario RSVP
+   - "Copiar Alias"
+   - Cualquier otro elemento que tenga class="btn"
+
+   Se utiliza display: inline-flex para que el texto
+   quede perfectamente centrado dentro del botón.
+*/
+
+.btn {
+  /* Permite que el botón tenga dimensiones propias */
+  display: inline-flex;
+
+  /* Centrado horizontal y vertical del contenido */
+  align-items: center;
+  justify-content: center;
+
+  /* Espaciado interno */
+  padding: 12px 26px;
+
+  /* Tamaño mínimo para facilitar el uso en celulares */
+  min-height: 46px;
+  min-width: 150px;
+
+  /* Evita problemas con el ancho */
+  box-sizing: border-box;
+
+  /* Bordes */
+  border: 1px solid rgba(124, 117, 117, 0.45);
+  border-radius: 30px;
+
+  /*
+     Fondo elegante para boda.
+
+     Utilizamos un degradado gris cálido /
+     gris azulado porque combina con
+     los colores actuales de tu invitación.
+  */
+  background: linear-gradient(
+    135deg,
+    #8f8787,
+    #666b6b
+  );
+
+  /* Texto */
+  color: #ffffff;
+
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  /* Evita que los enlaces aparezcan subrayados */
+  text-decoration: none;
+
+  /* Cursor */
+  cursor: pointer;
+
+  /*
+     Importante para que el botón quede por encima
+     de elementos que puedan superponerse.
+  */
+  position: relative;
+  z-index: 5;
+
+  /*
+     Sombra elegante.
+  */
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.16);
+
+  /*
+     Transiciones suaves.
+  */
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* =========================================================
+   TEXTO DEL BOTÓN
+   ========================================================= */
+
+/*
+   Fuerza el color blanco incluso si existen
+   otras reglas para los enlaces <a>.
+*/
+
+.btn,
+.btn:visited {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   BOTÓN "CÓMO LLEGAR"
+   ========================================================= */
+
+/*
+   Estos IDs corresponden exactamente a tu HTML:
+
+   #churchBtn
+   #hallBtn
+
+   Se les da el mismo estilo elegante.
+*/
+
+#churchBtn,
+#hallBtn {
+  margin: 18px auto 0;
+
+  /*
+     Asegura que el botón pueda verse
+     aunque exista algún problema de
+     alineación del contenedor.
+  */
+  position: relative;
+  z-index: 10;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.btn:hover {
+  transform: translateY(-3px);
+
+  background: linear-gradient(
+    135deg,
+    #9b9292,
+    #707676
+  );
+
+  box-shadow:
+    0 9px 22px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   BOTÓN AL PRESIONAR
+   ========================================================= */
+
+.btn:active {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   BOTONES DENTRO DE SECCIONES
+   ========================================================= */
+
+/*
+   Si el botón está dentro de una sección,
+   lo centramos automáticamente.
+
+   Esto afecta a:
+
+   Cómo llegar
+   Enviar
+   Copiar Alias
+*/
+
+.section .btn {
+  display: flex;
+
+  width: fit-content;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================================================
+   BOTÓN EN FORMULARIO
+   ========================================================= */
+
+/*
+   El botón "Enviar" utiliza la misma apariencia
+   pero queda separado de los campos.
+*/
+
+#rsvpSubmitBtn {
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   BOTÓN COPIAR ALIAS
+   ========================================================= */
+
+#copyAlias2 {
+  margin-top: 10px;
+}
+
+
+/* =========================================================
+   BOTONES DESHABILITADOS
+   ========================================================= */
+
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   MAPAS
+   ========================================================= */
+
+/*
+   El iframe del mapa ocupa todo el ancho disponible.
+
+   Después del mapa aparece el botón "Cómo llegar".
+*/
+
+iframe {
+  display: block;
+
+  width: 100%;
+  height: 320px;
+
+  border: 0;
+  outline: none;
+
+  border-radius: 12px;
+
+  margin: 15px 0 0;
+
+  /*
+     Evita que el iframe tenga un comportamiento
+     extraño respecto a otros elementos.
+  */
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   CONTENEDOR DEL MAPA + BOTÓN
+   ========================================================= */
+
+/*
+   Si tus mapas están dentro de una sección,
+   esta regla garantiza que el botón aparezca
+   debajo del iframe y centrado.
+*/
+
+#churchMap + .btn,
+#hallMap + .btn {
+  position: relative;
+
+  z-index: 10;
+
+  display: flex;
+
+  width: fit-content;
+
+  margin: 10px auto 0;
+}
+
+
+/* =========================================================
+   CELULARES
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .btn {
+    min-height: 48px;
+
+    min-width: 160px;
+
+    padding: 12px 24px;
+
+    font-size: 0.95rem;
+  }
+
+  #churchBtn,
+  #hallBtn {
+    margin-top: 15px;
+  }
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .btn {
+    min-width: 155px;
+
+    min-height: 46px;
+
+    padding: 11px 22px;
+
+    font-size: 0.9rem;
+  }
+
+  #churchBtn,
+  #hallBtn {
+    margin-top: 14px;
+  }
+}
+
+  /* =========================================================
+  BOTÓN DE MÚSICA
+  ========================================================= */
+
+  #musicBtn {
+  position: fixed;
+
+  left: 18px;
+
+  bottom: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 12px 18px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  /*
+  Fondo blanco para destacar sobre
+  fotografías y fondos oscuros.
+  */
+  background: var(--white);
+
+  color: var(--pink-dark);
+
+  cursor: pointer;
+
+  font-family: 'Lato', sans-serif;
+
+  font-size: .85rem;
+
+  font-weight: 500;
+
+  z-index: 999;
+
+  box-shadow:
+  0 10px 25px rgba(0, 0, 0, .15);
+
+  transition: .3s ease;
+  }
+
+  /*
+  Movimiento suave al pasar el cursor.
+  */
+
+  #musicBtn:hover {
+  transform: translateY(-2px);
+  }
+
+  /*
+  Estado activo del botón.
+
+  Se utiliza el mismo degradado
+  que los botones principales.
+  */
+
+  #musicBtn.playing {
+  background: linear-gradient(
+  135deg,
+  var(--pink),
+  var(--blue)
+  );
+
+  color: #fff;
+  }
+
+  #musicBtn i {
+  font-size: 1rem;
+  }
+
+  /*
+  Animación del icono cuando la música
+  está reproduciéndose.
+  */
+
+  #musicBtn.playing i {
+  animation:
+  musicPulse 1.4s ease-in-out infinite;
+  }
+
+  /* =========================================================
+  ANIMACIÓN DEL BOTÓN DE MÚSICA
+  ========================================================= */
+
+  @keyframes musicPulse {
+
+  0%,
+  100% {
+  transform: scale(1);
+  }
+
+  50% {
+  transform: scale(1.2);
+  }
+  }
+
+  /* =========================================================
+  RESPONSIVE
+  TABLETS Y CELULARES
+  ========================================================= */
+
+  @media (max-width: 768px) {
+
+  /*
+  En celulares modernos se utiliza svh.
+
+  ```
+  svh = Small Viewport Height.
+
+  Ayuda a evitar problemas con las barras
+  dinámicas del navegador móvil.
+  ```
+
+  */
+
+  .hero {
+  min-height: 100svh;
+
+  
+  height: 100svh;
+
+  background-position: center center;
+  
+
+  }
+
+  /*
+  Reducimos ligeramente el espacio lateral.
+  */
+
+  .hero-content {
+  width: 100%;
+
+
+  height: 100%;
+
+  padding: 0 15px;
+  
+
+  }
+
+  /* -------------------------------------------------------
+  H1 EN CELULAR
+  ------------------------------------------------------- */
+
+  /*
+  El nombre permanece arriba y centrado.
+
+  ```
+  left: 0
+  width: 100%
+  text-align: center
+
+  garantizan el centrado horizontal.
+  ```
+
+  */
+
+  .hero h1 {
+  top: 35px;
+
+
+  left: 0;
+
+  width: 100%;
+
+  padding: 0 15px;
+
+  font-size: 3.2rem;
+
+  line-height: 1.1;
+
+  text-align: center;
+
+
+  }
+
+  /* -------------------------------------------------------
+  FECHA EN CELULAR
+  ------------------------------------------------------- */
+
+  .date {
+  bottom: 65px;
+
+
+  left: 0;
+
+  width: 100%;
+
+  padding: 0 15px;
+
+  font-size: 1.5rem;
+
+  text-align: center;
+
+  }
+
+  /* -------------------------------------------------------
+  FRASE EN CELULAR
+  ------------------------------------------------------- */
+
+  /*
+  IMPORTANTE:
+  No se utiliza transform aquí.
+
+  ```
+  La frase se centra utilizando únicamente
+  left + width + text-align.
+  ```
+
+  */
+
+  .quote {
+  bottom: 30px;
+
+
+  left: 0;
+
+  width: 100%;
+
+  max-width: none;
+
+  padding: 0 20px;
+
+  font-size: .9rem;
+
+  line-height: 1.4;
+
+  text-align: center;
+
+
+  }
+
+  /* -------------------------------------------------------
+  TÍTULOS DE LAS SECCIONES
+  ------------------------------------------------------- */
+
+  .section h2 {
+  font-size: 2rem;
+  }
+
+  /* -------------------------------------------------------
+  MAPAS
+  ------------------------------------------------------- */
+
+  iframe {
+  height: 250px;
+  }
+
+
+
+  /* -------------------------------------------------------
+  BOTÓN DE MÚSICA
+  ------------------------------------------------------- */
+
+  /*
+  En celulares ocultamos el texto
+  y dejamos solamente el icono.
+  */
+
+  #musicBtn span {
+  display: none;
+  }
+
+  #musicBtn {
+  padding: 0;
+
+
+  width: 50px;
+
+  height: 50px;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+
+  }
+  }
+
+  /* =========================================================
+  CELULARES PEQUEÑOS
+  ========================================================= */
+
+  @media (max-width: 480px) {
+
+  /* -------------------------------------------------------
+  H1
+  ------------------------------------------------------- */
+
+  .hero h1 {
+  top: 30px;
+
+
+  left: 0;
+
+  width: 100%;
+
+  padding: 0 10px;
+
+  font-size: 2.7rem;
+
+  line-height: 1.1;
+
+  text-align: center;
+
+
+  }
+
+  /* -------------------------------------------------------
+  FECHA
+  ------------------------------------------------------- */
+
+  .date {
+  bottom: 88px;
+
+
+  left: 0;
+
+  width: 100%;
+
+  padding: 0 5px;
+
+  font-size: 1.4rem;
+
+  text-align: center;
+
+  }
+
+  /* -------------------------------------------------------
+  FRASE
+  ------------------------------------------------------- */
+
+  .quote {
+  bottom: 50px;
+
+
+  left: 0;
+
+  width: 100%;
+
+  max-width: none;
+
+  padding: 0 5px;
+
+  font-size: 1.8rem;
+
+  line-height: 1.5;
+
+  text-align: center;
+
+
+  }
+  }
