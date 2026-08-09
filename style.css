@@ -277,7 +277,8 @@
   */
 
   h1,
-  h2 {
+  h2,
+  h3 {
   font-family: 'Vidaloka', serif;
   font-weight: 400;
   }
@@ -350,7 +351,7 @@
   /*
   Imagen principal de la portada.
   */
-  background-image: url("images/hero.jpg");
+  background-image: url("images/hero.png");
 
   /*
   La fotografía queda centrada.
@@ -1055,6 +1056,243 @@
   font-size: 24px;
   font-family: 'Great Vibes', cursive;
   }
+    /* =========================================================
+  Obsequios
+  ========================================================= */
+
+.text-center2 {
+text-align: center;
+color: var(--muted);
+font-size: 18px;
+font-family: "Cormorant Garamond", serif;
+}
+
+/* =================================
+OPCIONES DE REGALOS
+================================= */
+
+.gift-options {
+max-width: 650px;
+margin: 30px auto 0;
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+/* Tarjeta */
+.gift-card {
+background: rgba(255, 255, 255, 0.75);
+border: 1px solid rgba(180, 150, 120, 0.25);
+border-radius: 16px;
+overflow: hidden;
+
+
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+transition:
+box-shadow 0.3s ease,
+transform 0.3s ease;
+}
+
+.gift-card:hover {
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.09);
+}
+
+/* =================================
+BOTÓN
+================================= */
+
+.gift-button {
+width: 100%;
+border: none;
+background: transparent;
+
+padding: 18px 20px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+cursor: pointer;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 1.3rem;
+font-weight: 600;
+
+color: #8b6f5a;
+
+transition: background 0.3s ease;
+}
+
+.gift-button span:first-child {
+font-size: 1.05rem;
+}
+
+@media (max-width: 600px) {
+.gift-button span:first-child {
+font-size: 1.3rem;
+}
+}
+
+
+.gift-button:hover {
+background: rgba(200, 170, 140, 0.08);
+}
+
+
+/* =================================
+ICONO +
+================================= */
+
+.gift-icon {
+width: 30px;
+height: 30px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 50%;
+border: 1px solid #c7a27c;
+
+color: #a58261;
+
+font-family: Arial, sans-serif;
+font-size: 15px;
+font-weight: 300;
+
+flex-shrink: 0;
+
+transition: transform 0.4s ease;
+}
+
+/* =================================
+CONTENIDO OCULTO
+================================= */
+
+.gift-content {
+max-height: 0;
+overflow: hidden;
+
+opacity: 0;
+
+padding: 0 25px;
+
+transition:
+max-height 0.5s ease,
+opacity 0.4s ease,
+padding 0.4s ease;
+}
+
+/* =================================
+CONTENIDO ABIERTO
+================================= */
+
+.gift-card.active .gift-content {
+max-height: 400px;
+
+opacity: 1;
+
+padding: 0 25px 25px;
+}
+
+/* Gira el + */
+.gift-card.active .gift-icon {
+transform: rotate(45deg);
+}
+
+/* =================================
+TEXTOS
+================================= */
+
+.gift-content p {
+margin: 8px 0;
+
+font-family: "Cormorant Garamond", serif;
+
+font-size: 18px;
+
+line-height: 1.5;
+
+color: var(--muted);
+}
+
+/* Código IQ200 */
+.gift-code {
+font-family: "Montserrat", sans-serif !important;
+
+font-size: 20px !important;
+
+font-weight: 600;
+
+letter-spacing: 2px;
+
+color: #8b6f5a !important;
+
+margin: 15px 0 !important;
+}
+
+/* Alias bancario */
+.gift-alias {
+font-family: "Montserrat", sans-serif !important;
+
+font-size: 20px !important;
+
+letter-spacing: 1px;
+
+color: #8b6f5a !important;
+
+margin: 15px 0 !important;
+}
+
+/* =================================
+BOTONES COPIAR
+================================= */
+
+.gift-content .btn {
+margin-top: 8px;
+}
+
+/* =================================
+CELULARES
+================================= */
+
+@media (max-width: 600px) {
+
+.gift-options {
+margin-top: 25px;
+padding: 0 5px;
+}
+
+.gift-button {
+padding: 17px 18px;
+font-size: 1.15rem;
+}
+
+.gift-icon {
+width: 27px;
+height: 27px;
+font-size: 18px;
+}
+
+.gift-content {
+padding: 0 18px;
+}
+
+.gift-card.active .gift-content {
+padding: 0 18px 22px;
+}
+
+.gift-content p {
+font-size: 16px;
+}
+
+.gift-code,
+.gift-alias {
+font-size: 18px !important;
+}
+}
+
 
   /* =========================================================
   CONTADOR
@@ -1371,9 +1609,11 @@
   transform: scale(1.02);
 }
 
+
+
 /* =========================================================
    BOTONES DEL SLIDER
-========================================================= */
+========================================================= 
 
 .slider-btn {
   position: absolute;
@@ -1435,6 +1675,160 @@
 .slider-next {
   right: 15px;
 }
+
+*/
+
+/* =================================
+DETALLES - TARJETAS DESLIZABLES
+================================= */
+
+.details-container {
+max-width: 750px;
+margin: 40px auto 0;
+display: flex;
+flex-direction: column;
+gap: 18px;
+}
+
+/* Tarjeta */
+.detail-card {
+background: rgba(255, 255, 255, 0.85);
+border: 1px solid rgba(180, 150, 120, 0.25);
+border-radius: 18px;
+overflow: hidden;
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+transition: all 0.3s ease;
+}
+
+.detail-card:hover {
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+/* Botón */
+.detail-button {
+width: 100%;
+border: none;
+background: transparent;
+padding: 22px 25px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+cursor: pointer;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 1.35rem;
+font-weight: 600;
+color: #8b6f5a;
+
+transition: background 0.3s ease;
+}
+
+.detail-button:hover {
+background: rgba(200, 170, 140, 0.08);
+}
+
+/* Icono + */
+.detail-icon {
+width: 30px;
+height: 30px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 50%;
+border: 1px solid #c7a27c;
+
+color: #a58261;
+font-family: Arial, sans-serif;
+font-size: 20px;
+font-weight: 300;
+
+transition: transform 0.4s ease;
+}
+
+/* Contenido oculto */
+.detail-content {
+max-height: 0;
+overflow: hidden;
+opacity: 0;
+
+padding: 0 30px;
+
+transition:
+max-height 0.5s ease,
+opacity 0.4s ease,
+padding 0.4s ease;
+}
+
+/* Texto */
+.detail-content p {
+margin: 0;
+
+font-family: "Montserrat", sans-serif;
+font-size: 0.95rem;
+line-height: 1.7;
+color: #555;
+text-align: center;
+}
+
+/* TARJETA ABIERTA */
+.detail-card.active .detail-content {
+max-height: 300px;
+opacity: 1;
+padding: 0 30px 25px;
+}
+
+/* Cambia + por rotación */
+.detail-card.active .detail-icon {
+transform: rotate(45deg);
+}
+
+/* Línea decorativa */
+.detail-card.active .detail-button::after {
+content: "";
+position: absolute;
+}
+
+/* =================================
+CELULARES
+================================= */
+
+@media (max-width: 600px) {
+
+.details-container {
+margin-top: 30px;
+padding: 0 10px;
+gap: 15px;
+}
+
+.detail-button {
+padding: 18px 18px;
+font-size: 1.15rem;
+}
+
+.detail-icon {
+width: 27px;
+height: 27px;
+font-size: 18px;
+flex-shrink: 0;
+margin-left: 12px;
+}
+
+.detail-content {
+padding: 0 20px;
+}
+
+.detail-card.active .detail-content {
+padding: 0 20px 22px;
+}
+
+.detail-content p {
+font-size: 0.88rem;
+line-height: 1.6;
+}
+}
+
 
 /* =========================================================
    PUNTOS DEL SLIDER

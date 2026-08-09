@@ -98,24 +98,11 @@
 
   <div class="gallery-slider">
 
-    <button
-      class="slider-btn slider-prev"
-      id="galleryPrev"
-      type="button"
-      aria-label="Foto anterior">
-      &#10094;
-    </button>
-
+    
+    
     <div class="gallery-slide"></div>
 
-    <button
-      class="slider-btn slider-next"
-      id="galleryNext"
-      type="button"
-      aria-label="Foto siguiente">
-      &#10095;
-    </button>
-
+    
   </div>
 
   <div class="gallery-dots" id="galleryDots"></div>
@@ -128,9 +115,16 @@
 <!-- ================= CEREMONIA ================= -->
 <section class="section reveal">
   <h2>Ceremonia</h2>
+  <div class="timeline">
 
+  <p class="text-center">"El amor es paciente, es bondadoso. El amor no es envidioso ni presumido ni orgulloso."
+  <br> 1 Corintios 13:4
+  </p>
+
+
+</div>
   <div class="card">
-    <h3 id="churchName">Nuestra Señora del Valle Yerba Buena</h3>
+    <h3 id="churchName">Parroquia Ntra. Señora del Valle Yerba Buena</h3>
     <br>
     <p id="churchAddress">Dirección: Florida sur 251 - Yerba Buena</p>
     <p id="churchTime">Hora: 15:30 hs</p>
@@ -157,38 +151,123 @@
   </div>
 </section>
 
-<!-- ================= CRONOGRAMA ================= 
-<section class="section reveal">
-  <h2>Cronograma</h2>
 
-  <div class="timeline">
-    <div class="timeline-item">Recepción</div>
-    <div class="timeline-item">Ceremonia</div>
-    <div class="timeline-item">Brindis</div>
-    <div class="timeline-item">Cena</div>
-    <div class="timeline-item">Fiesta</div>
+<section class="section reveal">
+  <h2>Te contamos algunos detalles...</h2>
+
+  <div class="details-container">
+
+
+<!-- Tarjeta 1 -->
+<div class="detail-card">
+  <button class="detail-button" type="button">
+    <span>Código de Vestimenta</span>
+    <span class="detail-icon">+</span>
+  </button>
+
+  <div class="detail-content">
+    <p>
+      Los invitamos a vestir formal y elegante, en armonía con el estilo
+      de nuestra celebración.
+      <br><br>
+      Les pedimos con mucho cariño evitar tonos blancos y sus variantes,
+      ya que están reservados para la novia. Gracias por comprender.
+    </p>
+  </div>
+</div>
+
+<!-- Tarjeta 2 -->
+<div class="detail-card">
+  <button class="detail-button" type="button">
+    <span>¿Los niños están invitados?</span>
+    <span class="detail-icon">+</span>
+  </button>
+
+  <div class="detail-content">
+    <p>
+      Esta será una boda solo para adultos.
+    </p>
+  </div>
+</div>
+
+
   </div>
 </section>
--->
 
-
-
-<!-- ================= REGALOS ================= -->
 <section class="section reveal">
   <h2>Obsequios</h2>
+<p class="text-center2">
+  Lo más importante para nosotros es compartir este momento con vos.
+  Si deseas regalarnos algo, te dejamos estas opciones.
+</p>
 
-  <div class="card text-center">
-    <p>Lo más importante para nosotros es compartir este momento con vos. Si querés acompañarnos con un presente, te dejamos estas opciónes.</p><br>
-    <p class="mb-2">Nuestra lista de deseos está en las sucursales de: <strong>Oscar Barbieri</strong>. Diciendo nuestros nombres o con el siguiente codigo:</p>
-    <p id="aliasText">IQ200</p>
-    <button id="copyAlias" class="btn">Copiar codigo</button>
-    <p>o Transferencia a:</p>
-    <p id="aliasText2"><strong>BODANYG1926</strong></p>
-    <p>CBU:0000000000000000</p>
-    <p>Nombre de cuenta:XXXXXXXXXX</p>
-    <button id="copyAlias2" class="btn">Copiar Alias</button>
+  <div class="details-container">
+
+
+<!-- Tarjeta 1 -->
+<div class="detail-card">
+  <button class="detail-button" type="button">
+    <span>Lista de deseos</span>
+    <span class="detail-icon">+</span>
+  </button>
+
+  <div class="detail-content">
+    
+      <p>
+        En sucursales de:
+        <strong>Oscar Barbieri</strong>.
+      </p>
+
+      <p>
+        A nombre de los novios o con el código:
+      </p>
+
+      <p id="aliasText" class="gift-code">
+        IQ200
+      </p>
+
+      <button id="copyAlias" class="btn" type="button">
+        Copiar código
+      </button>
+
+  </div>
+</div>
+
+<!-- Tarjeta 2 -->
+<div class="detail-card">
+  <button class="detail-button" type="button">
+    <span>Transferencia bancaria</span>
+    <span class="detail-icon">+</span>
+  </button>
+
+  <div class="detail-content">
+          <p>Transferencia a:</p>
+
+      <p id="aliasText2" class="gift-alias">
+        <strong>JURIN.19.09</strong>
+      </p>
+
+      <p>
+        CBU: 0070357230004047072489
+      </p>
+
+      <p>
+        Titular: Noelia Noemi Juri
+      </p>
+
+      <button id="copyAlias2" class="btn" type="button">
+        Copiar Alias
+      </button>
+
+  </div>
+</div>
+
+
   </div>
 </section>
+
+
+
 
 <!-- ================= RSVP ================= -->
 <section class="section reveal">
@@ -198,16 +277,13 @@
     <input type="text" id="rsvpName" placeholder="Nombre" required />
     <!-- <input type="number" id="rsvpGuests" placeholder="Cantidad de invitados" min="1" required /> -->
 
-    <select id="rsvpAttendance">
-      <option value="Si asistiré">Sí asistiré</option>
-      <option value="No asistiré">No asistiré</option>
-    </select>
+    <select id="rsvpAttendance"> <option value="Si asistiré">Sí asistiré</option> <option value="No asistiré">No asistiré</option> </select>
 
-    <textarea id="rsvpMessage" placeholder="Mensaje para los novios"></textarea>
+<textarea id="rsvpMessage" placeholder="Mensaje para los novios"></textarea>
 
-    <button type="submit" class="btn" id="rsvpSubmitBtn">Enviar</button>
+<button type="submit" class="btn" id="rsvpSubmitBtn"> Enviar </button>
 
-    <p id="rsvpStatus" class="rsvp-status" aria-live="polite"></p>
+<p id="rsvpStatus" class="rsvp-status" aria-live="polite"></p>
   </form>
 </section>
 
@@ -215,10 +291,11 @@
 
 <!-- ================= FINAL ================= -->
 <section class="section reveal final">
-  <h2>Gracias</h2>
-  <p>Te esperamos en nuestro gran día.</p>
+  <p class="text-center2">Te esperamos en nuestro gran día.</p>
 
   <img src="images/final.jpg" class="final-img" alt="novios"/>
+  <br>
+  <p class="text-center2">Gracias.</p>
 </section>
 
 <!-- ================= LIGHTBOX ================= -->

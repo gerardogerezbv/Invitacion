@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     date: "2026-09-19T17:00:00",
 
-    churchName: "Nuestra Señora del Valle",
+    churchName: "Parroquia Ntra. Señora del Valle",
 
     hallName: "Salón Villa Verde",
 
@@ -72,9 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
         name:
           "entry.1498135098",
 
-        guests:
-          "entry.1424661284",
-
         attendance:
           "entry.877086558",
 
@@ -106,6 +103,42 @@ document.addEventListener("DOMContentLoaded", () => {
     ]
 
   };
+
+  /* =================================
+TARJETAS DE DETALLES
+================================= */
+
+document.querySelectorAll(".detail-button").forEach(button => {
+
+button.addEventListener("click", () => {
+
+
+const card = button.closest(".detail-card");
+
+card.classList.toggle("active");
+
+
+});
+
+});
+
+/* =================================
+ACORDEÓN - REGALOS
+================================= */
+
+document.querySelectorAll(".gift-button").forEach(button => {
+
+button.addEventListener("click", () => {
+
+const card = button.closest(".gift-card");
+
+card.classList.toggle("active");
+
+
+});
+
+});
+
 
 
   /* =========================================================
@@ -879,213 +912,156 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================================================
-     RSVP → GOOGLE FORMS
-  ========================================================= */
+RSVP → GOOGLE FORMS
+========================================================= */
 
-  const rsvpForm =
-    $("rsvpForm");
+const rsvpForm = $("rsvpForm");
 
+if (rsvpForm && CONFIG.googleForm) {
 
-  if (
-    rsvpForm &&
-    CONFIG.googleForm
-  ) {
+rsvpForm.addEventListener("submit", (e) => {
 
-    rsvpForm.addEventListener(
-      "submit",
-      (e) => {
+e.preventDefault();
 
-        e.preventDefault();
+const status = $("rsvpStatus");
+const submitBtn = $("rsvpSubmitBtn");
 
+const name =
+  $("rsvpName")
+    ? $("rsvpName").value.trim()
+    : "";
 
-        const status =
-          $("rsvpStatus");
+const attendance =
+  $("rsvpAttendance")
+    ? $("rsvpAttendance").value
+    : "";
 
-        const submitBtn =
-          $("rsvpSubmitBtn");
+const message =
+  $("rsvpMessage")
+    ? $("rsvpMessage").value.trim()
+    : "";
 
 
-        const name =
-          $("rsvpName")
-            ? $("rsvpName")
-                .value
-                .trim()
-            : "";
+/* =========================
+   VALIDAR NOMBRE
+========================= */
 
+if (!name) {
 
-        const guestsRaw =
-          $("rsvpGuests")
-            ? $("rsvpGuests")
-                .value
-                .trim()
-            : "";
+  if (status) {
 
+    status.textContent =
+      "Por favor, ingresá tu nombre completo.";
 
-        const guests =
-          parseInt(
-            guestsRaw,
-            10
-          );
-
-
-        const attendance =
-          $("rsvpAttendance")
-            ? $("rsvpAttendance")
-                .value
-            : "";
-
-
-        const message =
-          $("rsvpMessage")
-            ? $("rsvpMessage")
-                .value
-                .trim()
-            : "";
-
-
-        if (!name) {
-
-          if (status) {
-
-            status.textContent =
-              "Por favor, ingresá tu nombre completo.";
-
-            status.className =
-              "rsvp-status error";
-
-          }
-
-          return;
-        }
-
-
-        if (
-          !guestsRaw ||
-          isNaN(guests) ||
-          guests < 1
-        ) {
-
-          if (status) {
-
-            status.textContent =
-              "Indicá la cantidad de invitados (mínimo 1).";
-
-            status.className =
-              "rsvp-status error";
-
-          }
-
-          return;
-        }
-
-
-        const data =
-          new FormData();
-
-
-        data.append(
-          CONFIG.googleForm.entries.name,
-          name
-        );
-
-
-        data.append(
-          CONFIG.googleForm.entries.guests,
-          guests
-        );
-
-
-        data.append(
-          CONFIG.googleForm.entries.attendance,
-          attendance
-        );
-
-
-        data.append(
-          CONFIG.googleForm.entries.message,
-          message
-        );
-
-
-        if (submitBtn) {
-
-          submitBtn.disabled =
-            true;
-
-          submitBtn.textContent =
-            "Enviando...";
-
-        }
-
-
-        if (status) {
-
-          status.textContent =
-            "";
-
-          status.className =
-            "rsvp-status";
-
-        }
-
-
-        fetch(
-          CONFIG.googleForm.actionUrl,
-          {
-            method: "POST",
-            mode: "no-cors",
-            body: data
-          }
-        )
-          .then(() => {
-
-            if (status) {
-
-              status.textContent =
-                "¡Gracias! Tu confirmación fue enviada ✓";
-
-              status.className =
-                "rsvp-status success";
-
-            }
-
-
-            rsvpForm.reset();
-
-          })
-
-          .catch(() => {
-
-            if (status) {
-
-              status.textContent =
-                "Hubo un error de conexión. Intentá de nuevo.";
-
-              status.className =
-                "rsvp-status error";
-
-            }
-
-          })
-
-          .finally(() => {
-
-            if (submitBtn) {
-
-              submitBtn.disabled =
-                false;
-
-              submitBtn.textContent =
-                "Enviar";
-
-            }
-
-          });
-
-      }
-    );
-
+    status.className =
+      "rsvp-status error";
   }
+
+  return;
+}
+
+
+/* =========================
+   PREPARAR DATOS
+========================= */
+
+const data = new FormData();
+
+data.append(
+  CONFIG.googleForm.entries.name,
+  name
+);
+
+data.append(
+  CONFIG.googleForm.entries.attendance,
+  attendance
+);
+
+data.append(
+  CONFIG.googleForm.entries.message,
+  message
+);
+
+
+/* =========================
+   BOTÓN ENVIANDO
+========================= */
+
+if (submitBtn) {
+
+  submitBtn.disabled = true;
+
+  submitBtn.textContent =
+    "Enviando...";
+}
+
+
+if (status) {
+
+  status.textContent = "";
+
+  status.className =
+    "rsvp-status";
+}
+
+
+/* =========================
+   ENVIAR A GOOGLE FORMS
+========================= */
+
+fetch(
+  CONFIG.googleForm.actionUrl,
+  {
+    method: "POST",
+    mode: "no-cors",
+    body: data
+  }
+)
+
+  .then(() => {
+
+    if (status) {
+
+      status.textContent =
+        "¡Gracias! Tu confirmación fue enviada ✓";
+
+      status.className =
+        "rsvp-status success";
+    }
+
+    rsvpForm.reset();
+
+  })
+
+  .catch(() => {
+
+    if (status) {
+
+      status.textContent =
+        "Hubo un error de conexión. Intentá de nuevo.";
+
+      status.className =
+        "rsvp-status error";
+    }
+
+  })
+
+  .finally(() => {
+
+    if (submitBtn) {
+
+      submitBtn.disabled = false;
+
+      submitBtn.textContent =
+        "Enviar";
+    }
+
+  });
+
+});
+
+}
+
 
 
   /* =========================================================
